@@ -40,12 +40,18 @@ body {
   -o-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
+.article-item {
+  overflow: hidden;
+}
 .article-item h3 a {
   color: #333;
   text-decoration: none;
 }
 .article-item h3 a:hover {
   color: #999;
+}
+.article-view {
+  overflow: hidden;
 }
 .article-view h1 {
   margin: 10px 0;
