@@ -1,1 +1,59 @@
-Hello World
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="blog">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title || 'Lei Xia\'s Blog' }}</title>
+	<link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="public/vendor/angular-loading-bar/loading-bar.min.css" />
+	<link rel="stylesheet" href="public/css/style.css" />
+</head>
+<body>
+<header>
+	<div class="container">
+		<h1>Lei Xia's Blog</h1>
+
+		<p>Write Less,Do More.</p>
+		<hr />
+	</div>
+</header>
+<section class="container">
+	<div class="col-md-8" ng-controller="IndexCtrl">
+	<ng-view></ng-view>
+	</div>
+	<div class="col-md-4">
+		<div class="widget">
+			<h3>About Me</h3>
+			<ul>
+				<!--<li><img src="public/img/avatar.jpg" alt="Avatar" class="img-responsive img-rounded" /></li>-->
+				<li><strong>Lei Xia</strong></li>
+				<li>Vikaa Inc.</li>
+				<li><a href="http://www.ddhigh.com" target="_blank"><i class="fa fa-globe"></i> Site</a></li>
+			</ul>
+		</div>
+		<div class="widget">
+			<h3>About Blog</h3>
+			<ul>
+				<li>Based on Angularjs And ThinkPHP</li>
+				<li><a href="http://angularjs.org" target="_blank">Angularjs</a></li>
+				<li><a href="http://www.thinkphp.cn" target="_blank">ThinkPHP</a></li>
+			</ul>
+		</div>
+		<div class="widget">
+			<h3>Contact Me</h3>
+			<ul>
+				<li><a href="mailto:admin@ddhigh.com"><i class="fa fa-envelope"></i> Email</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+<script src="public/vendor/jquery/jquery.min.js"></script>
+<script src="public/vendor/angularjs/angular.min.js"></script>
+<script src="public/vendor/angularjs/angular-route.min.js"></script>
+<script src="public/vendor/angularjs/angular-sanitize.min.js"></script>
+<script src="public/vendor/angular-loading-bar/loading-bar.min.js"></script>
+<script src="public/js/main.js"></script>
+</body>
+</html>

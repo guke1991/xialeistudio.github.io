@@ -1,0 +1,59 @@
+<p><a href="#/" class="btn btn-info btn-sm"><i class="fa fa-arrow-left"></i> Back</a></p>
+<div class=" panel panel-default no-corner article-view">
+	<div class="panel-body">
+		<h1>{{ article.post_title }}</h1>
+		<time datetime="{{ article.post_date }}"><i class="fa fa-clock-o"></i> {{ article.post_date }}</time>
+		<p ng-bind-html="article.post_content"></p>
+	</div>
+</div>
+<div class="panel panel-default no-corner box-shadow comment-list">
+	<div class="panel-body">
+		<h3>评论列表</h3>
+		<hr />
+		<form name="form" action="" method="post" class="form-horizontal">
+			<div class="form-group form-group-sm">
+				<label for="comment_author" class="control-label col-md-2 col-lg-1">称呼</label>
+				<div class="col-md-4">
+					<input type="text" id="comment_author" class="form-control no-corner" placeholder="怎么称呼您？" ng-model="comment.comment_author" ng-required="true" ng-maxlength="20" />
+				</div>
+			</div>
+			<div class="form-group form-group-sm">
+				<label for="comment_author_email" class="control-label col-md-2 col-lg-1">邮箱</label>
+				<div class="col-md-4">
+					<input type="email" id="comment_author_email" class="form-control no-corner" placeholder="您的邮箱" ng-model="comment.comment_author_email" ng-required="true"/>
+				</div>
+			</div>
+
+			<div class="form-group form-group-sm">
+				<label for="comment_author_url" class="control-label col-md-2 col-lg-1">网站</label>
+				<div class="col-md-4">
+					<input type="url" id="comment_author_url" class="form-control no-corner" placeholder="您的网站，如博客" ng-model="comment.comment_author_url"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="comment_content" class="sr-only">内容</label>
+				<div class="col-md-12">
+					<textarea id="comment_content" ng-required="true" ng-model="comment.comment_content" class="form-control no-corner" rows="8" placeholder="说点什么--。"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="container">
+					<button type="submit" class="btn btn-primary" ng-click="post(comment)" ng-disabled="form.$invalid||busy"><i class="fa fa-star"></i> 愉快的评论了</button>
+				</div>
+			</div>
+			<p class="msg">博主承诺对您的邮箱绝对保密.</p>
+		</form>
+		<hr />
+		<ul class="media-list">
+			<li class="media" ng-repeat="item in comments track by $index">
+				<div class="media-body">
+					<strong>{{ item.comment_author }}</strong>
+					<p>{{ item.comment_content }} <br />
+						<time>{{ item.comment_date }}</time>
+						<br />
+						<span ng-if="item.comment_author_url.length>0"><i class="fa fa-globe"></i> <a href="{{ item.comment_author_url }}" target="_blank">{{ item.comment_author_url }}</a></span></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

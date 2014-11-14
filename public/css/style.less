@@ -1,0 +1,84 @@
+@import "mixins";
+
+body {
+	font-size: 14px;
+	font-family: "Consolas", "Microsoft Yahei";
+}
+
+.widget {
+	margin-bottom: 1em;
+	border: 1px solid #e2e2e2;
+	background: #ffffff;
+	#solution> .box-shadow(1px 1px 1px 0px rgba(0, 0, 0, 0.1));
+	padding: .5em 1em .5em 1em;
+	h3 {
+		font-size: 15px;
+		font-weight: bold;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		padding-bottom: 10px;
+		border-bottom: 2px solid #08a5e0;
+	}
+	ul {
+		list-style: none;
+		padding: 1px 0 1px 0;
+		li {
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.no-corner {
+	#solution> .border-radius(0);
+}
+
+.box-shadow {
+	#solution> .box-shadow(1px 1px 1px 0px rgba(0, 0, 0, 0.1));
+}
+
+.article-item {
+	h3 {
+		a {
+			color: #333;
+			text-decoration: none;
+			&:hover {
+				color: #999;
+			}
+		}
+	}
+}
+
+.article-view {
+	h1 {
+		margin: 10px 0;
+		font-size: 1.4em;
+		font-weight: bold;
+	}
+	p {
+		line-height: 200%;
+	}
+	h2 {
+		font-weight: normal;
+		font-size: 1.2em;
+		border-left: 4px solid #428BCA;
+		padding-left: 10px;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+.msg {
+	color: #999;
+}
+
+textarea {
+	resize: none !important;
+}
