@@ -74,3 +74,6 @@ h3 {
 textarea {
   resize: none !important;
 }
+.pagination {
+  font-size: .8em;
+}

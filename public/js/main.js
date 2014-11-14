@@ -19,19 +19,39 @@ var _api = 'http://www.ddhigh.com/api/home';
 blog.controller('IndexCtrl', [
 	'$scope', '$http', function($scope, $http) {
 		$scope.busy = false;
-		$scope.page = 1;
+		$scope.limit = 10;
 		$scope.total = 0;
-		if ($scope.busy) {
-			return;
-		}
-		$scope.busy = true;
-		$http.get(_api+'/article/lists/page/'+$scope.page).success(function(data) {
-			$scope.busy = false;
-			if (data.total != undefined && data.total > 0) {
-				$scope.total = data.total;
-				$scope.list = data.list;
+		$scope.currentPage = 1;
+		$scope.pages = 1;
+		$scope.load = function() {
+			if ($scope.busy) {
+				return;
 			}
-		});
+			$scope.busy = true;
+			$http.get(_api+'/article/lists/page/'+$scope.currentPage).success(function(data) {
+				$scope.busy = false;
+				if (data.total != undefined && data.total > 0) {
+					$scope.busy = false;
+					$scope.total = data.total;
+					$scope.list = data.list;
+					$scope.category = data.category;
+					$scope.pages = Math.ceil(data.total/$scope.limit);
+				}
+			});
+		};
+		$scope.prev = function() {
+			if ($scope.currentPage > 1) {
+				$scope.currentPage--;
+				$scope.load();
+			}
+		};
+		//下一页
+		$scope.next = function() {
+			if ($scope.currentPage < $scope.pages) {
+				$scope.currentPage++;
+				$scope.load();
+			}
+		};
 	}
 ]);
 blog.controller('ArticleViewCtrl', [

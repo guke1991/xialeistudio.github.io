@@ -1,8 +1,16 @@
-<div class="panel panel-default no-corner box-shadow article-item" ng-repeat="item in list">
-	<div class="panel-body">
-		<h3><a href="#/article/{{ item.ID }}">{{ item.post_title }}</a></h3>
-		<hr />
-		<p>{{ item.post_content|limitTo:'100' }}</p>
-		<aside><i class="fa fa-clock-o"></i> {{ item.post_date }} <i class="fa fa-comments-o"></i> {{ item.comment_count }}</aside>
+<div ng-init="load()">
+	<div class="panel panel-default no-corner box-shadow article-item" ng-repeat="item in list">
+		<div class="panel-body">
+			<h3><a href="#/article/{{ item.ID }}">{{ item.post_title }}</a></h3>
+			<hr />
+			<p>{{ item.post_content|limitTo:'100' }}</p>
+			<aside><i class="fa fa-clock-o"></i> {{ item.post_date }} <i class="fa fa-comments-o"></i> {{ item.comment_count }}</aside>
+		</div>
 	</div>
+
+	<p>当前 {{ currentPage }} / {{ pages }} 页</p>
+	<ul class="pagination" ng-show="total>limit">
+		<li ng-class="{true:'disabled'}[currentPage==1]"><a class="no-corner" href="javascript:void(0);" ng-click="prev()">上一页</a></li>
+		<li ng-class="{true:'disabled'}[currentPage==pages]"><a class="no-corner" href="javascript:void(0);" ng-click="next()">下一页</a></li>
+	</ul>
 </div>
