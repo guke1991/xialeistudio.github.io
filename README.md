@@ -3,7 +3,7 @@ xialeistudio.github.io
 
 xialei's blog
 
-基于Angularjs+Bootstrap+jQuery开发的博客，所有文章全部来自本人博客主站
+基于Angularjs+Bootstrap开发的博客，所有文章全部来自本人博客主站
 
 ##技术实现##
 1.wordpress进行文章发布/编辑等操作
