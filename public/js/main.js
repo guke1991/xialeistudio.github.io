@@ -15,7 +15,7 @@ blog.config([
 			});
 	}
 ]);
-var _api = 'http://localhost/wordpress_api/home';
+var _api = 'http://www.ddhigh.com/api/home';
 blog.controller('IndexCtrl', [
 	'$scope', '$http', function($scope, $http) {
 		$scope.busy = false;
