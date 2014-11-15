@@ -11,6 +11,7 @@ body {
   -ms-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  border-width: 1px 1px 4px 1px;
   padding: .5em 1em .5em 1em;
 }
 .widget h3 {
@@ -82,4 +83,7 @@ textarea {
 }
 .pagination {
   font-size: .8em;
+}
+.panel {
+  border-width: 1px 1px 4px 1px;
 }

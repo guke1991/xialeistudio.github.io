@@ -15,7 +15,7 @@ blog.config([
 			});
 	}
 ]);
-var _api = 'http://www.ddhigh.com/api/home';
+var _api = 'http://localhost/wordpress_api/home';
 blog.controller('IndexCtrl', [
 	'$scope', '$http', function($scope, $http) {
 		$scope.busy = false;
@@ -71,11 +71,11 @@ blog.controller('ArticleViewCtrl', [
 		});
 		//加载评论
 		$http.get(_api+'/comment/lists/id/'+$routeParams.id).success(function(data) {
-			if (data != null) {
-				$scope.comments = data;
+			if (data == "null") {
+				$scope.comments = [];
 			}
 			else {
-				$scope.comments = [];
+				$scope.comments = data;
 			}
 		});
 		//评论
@@ -90,11 +90,11 @@ blog.controller('ArticleViewCtrl', [
 					alert(data.error);
 				}
 				else {
-					if ($scope.comments != []) {
-						$scope.comments.splice(0, 0, data);
+					if ($scope.comments.length == 0) {
+						$scope.comments = [data];
 					}
 					else {
-						$scope.comments = [data];
+						$scope.comments.splice(0,0,data);
 					}
 				}
 			});
